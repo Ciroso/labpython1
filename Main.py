@@ -6,39 +6,34 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def getInsertionTime(t):
-    return insertionTime[t]
-
-
 insertionTime = []
 mergeSortTime = []
-n = 100
-A = []
-for j in range(n):
-    print(j)
-    for i in range(0, 600):
-        A.append(random.randint(0, 100000))
-
+for j in range(100, 5000, 10):
+    print("Parliamo di ", j, "/", 5000, "%", j/50)
+    A = []
+    for i in range(0, j):
+        A.append(random.randint(0, 5000))
     B = A[:]
 
+    # InsertionSort
     startTime = time.time()
     ins.insertionsort(A)
-    elapsedTime = time.time() - startTime
-    print("Insertionsorted ", elapsedTime)
-    insertionTime.append(elapsedTime)
+    insertionTime.append(time.time() - startTime)
 
-
+    # MergeSort
     startTime = time.time()
     mrg.mergesort(B, 1, len(B))
-    elapsedTime = time.time() - startTime
-    mergeSortTime.append(elapsedTime)
-    print("Mergessorete ", elapsedTime)
+    mergeSortTime.append(time.time() - startTime)
 
-t = np.arange(0, len(insertionTime))
+t = np.arange(0, len(mergeSortTime))
 plt.plot(t, insertionTime)
 plt.plot(t, mergeSortTime)
-plt.xlabel('numero dati')
+plt.xlabel('Dimensione Array')
+plt.ylabel('Tempo')
+plt.grid()
 plt.show()
+plt.savefig("grafico.png")
+
 
 '''
 import numpy as np import matplotlib.pyplot as plt

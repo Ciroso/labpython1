@@ -8,7 +8,7 @@ import numpy as np
 
 insertionTime = []
 mergeSortTime = []
-for j in range(100, 10000, 100):
+for j in range(100, 10000, 50):
     print("Parliamo di ", j, "/", 10000, "%", j/100)
     A = []
     for i in range(0, j):

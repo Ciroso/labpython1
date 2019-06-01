@@ -8,11 +8,11 @@ import numpy as np
 
 insertionTime = []
 mergeSortTime = []
-for j in range(100, 5000, 10):
-    print("Parliamo di ", j, "/", 5000, "%", j/50)
+for j in range(100, 10000, 100):
+    print("Parliamo di ", j, "/", 10000, "%", j/100)
     A = []
     for i in range(0, j):
-        A.append(random.randint(0, 5000))
+        A.append(random.randint(0, 10000))
     B = A[:]
 
     # InsertionSort

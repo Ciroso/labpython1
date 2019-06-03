@@ -35,14 +35,15 @@ for j in range(100, 10000, 50):
     mergeSortTime.append(time.time() - startTime)
 
 t = np.arange(0, len(mergeSortTime))
+print(100, "%!!!!!!!")
 plt.plot(t, insertionTime)
 plt.plot(t, mergeSortTime)
 plt.xlabel('Dimensione Array')
 plt.ylabel('Tempo')
 plt.grid()
-plt.show()
 plt.draw()
 plt.savefig('grafico.png', dpi=100)
+plt.show()
 print("Ci abbiamo impiegato ", time.time() - tempoTotale)
 
 '''

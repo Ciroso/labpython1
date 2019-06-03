@@ -42,7 +42,7 @@ plt.ylabel('Tempo')
 plt.grid()
 plt.show()
 plt.draw()
-plt.savefig("grafico.png")
+plt.savefig('grafico.png', dpi=100)
 print("Ci abbiamo impiegato ", time.time() - tempoTotale)
 
 '''

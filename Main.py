@@ -1,6 +1,5 @@
 import InsertionSort as ins
 import MergeSort as mrg
-# import random
 import time
 import matplotlib.pyplot as plt
 import numpy as np
@@ -8,17 +7,14 @@ import MakeArray
 
 
 tempoTotale = time.time()
+insertionTimeMigliore = []
+insertionTimePeggiore = []
 insertionTime = []
 mergeSortTime = []
 for j in range(100, 10000, 50):
     print("Parliamo di ", j, "/", 10000, "%", j/100, end=' e ci mette ')
-    A = []
-    '''
-    for i in range(0, j):
-        A.append(random.randint(0, 10000))
-    B = A[:]
-    '''
     tempoTempo = time.time()
+    A = []
     A = MakeArray.randomArray(A, j)
     B = A[:]
     tempoTempo = time.time()-tempoTempo
@@ -29,6 +25,17 @@ for j in range(100, 10000, 50):
     ins.insertionsort(A)
     insertionTime.append(time.time() - startTime)
 
+    # Miglior InsertioSort
+    startTime = time.time()
+    ins.insertionsort(A)
+    insertionTimeMigliore.append(time.time() - startTime)
+
+    # Peggior InsertionSort
+    A = MakeArray.casoPeggioreInsertion(A)
+    startTime = time.time()
+    ins.insertionsort(A)
+    insertionTimePeggiore.append(time.time() - startTime)
+
     # MergeSort
     startTime = time.time()
     mrg.mergesort(B, 1, len(B))
@@ -38,6 +45,7 @@ t = np.arange(0, len(mergeSortTime))
 print(100, "%!!!!!!!")
 plt.plot(t, insertionTime)
 plt.plot(t, mergeSortTime)
+plt.plot(t, insertionTimePeggiore, linestyle='', marker='*')
 plt.xlabel('Dimensione Array')
 plt.ylabel('Tempo')
 plt.grid()

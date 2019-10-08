@@ -17,6 +17,7 @@ mergeSortTime = []
 mergeSortTimeReverse = []
 
 nodeCounter = []
+
 dimension = 5000
 repetition = 10
 step = -1

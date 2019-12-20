@@ -19,9 +19,9 @@ mergeSortTimeReverse = []
 nodeCounter = []
 
 dimension = 5000
-repetition = 10
+repetition = 20
 step = -1
-for j in range(100, dimension, 250):
+for j in range(0, dimension, 250):
     step += 1
     print("Parliamo di ", j, "/", dimension, "%", j*100/dimension)
     insertionTimePeggiore = []
@@ -76,8 +76,8 @@ for j in range(100, dimension, 250):
 print(100, "%!!!!!!!")
 
 # WorstCase
-plt.plot(nodeCounter, finalWorstInsertionTime, label="InsertionSort worst")
-plt.plot(nodeCounter, finalReverseMergeSort, label="MergeSort with the same data")
+plt.plot(nodeCounter, finalWorstInsertionTime, label="InsertionSort")
+plt.plot(nodeCounter, finalReverseMergeSort, label="MergeSort ")
 plt.legend()
 plt.xlabel('Dimensione Array')
 plt.ylabel('Tempo')
